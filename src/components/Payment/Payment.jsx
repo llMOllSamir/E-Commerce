@@ -66,14 +66,13 @@ export default function Payment({userData}) {
 // payment method by online 
   let payVisa = async(value)=>{
     setPayLoding(true)
-    let {data} = await axios.post("https://route-ecommerce-app.vercel.app/api/v1/orders/checkout-session/"+cartid+"?url=http://localhost:3000",{shippingAddress:value},{headers}).catch(()=>{
+    let {data} = await axios.post("https://route-ecommerce-app.vercel.app/api/v1/orders/checkout-session/"+cartid+"?url=https://e-commerce-gray-alpha.vercel.app",{shippingAddress:value},{headers}).catch(()=>{
     toast.error("check connection");setPayLoding(false)})
     if(data?.status=="success"){
       setPayLoding(false)
       window.open(data?.session?.url, "_self")
     }
   }
-
   // get country from api 
   let country=async()=>{
     let {data}= await axios.get("https://countriesnow.space/api/v0.1/countries").catch(()=>{toast.error("check data connection")})
