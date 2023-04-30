@@ -36,7 +36,10 @@ useEffect(()=>{
     {isLoading?<><div className="loader-header"><div className="loader"></div></div></>:<>
       <div className="container bg-light p-5 my-5 shadow-lg">
         <div className="text-center border-bottom border-secondary"><h2 className='badge bg-success fs-2 '>All Orders</h2>
-        <div className="d-flex justify-content-around mt-2"> <h3 className='h4'>Name : <span className='badge bg-secondary'>{userData?.name}</span></h3> <h3 className='h4'>User ID : <span className='badge bg-secondary'>{userData?.id} </span></h3></div></div>
+        <div className="row">
+          <div className="col-md-6"> <h3 className='h4'>Name : <span className='badge bg-secondary'>{userData?.name}</span></h3> </div>
+          <div className="col-md-6"><h3 className='h4'>User ID : <span className='badge bg-secondary'>{userData?.id} </span></h3></div></div> 
+           </div>
         {error?<div className="alert alert-danger">Data {error}</div>:""}
       {allorders?.map((order,index)=>
       <div className="row pb-1 gy-1 border-bottom border-secondary my-4" key={index}>
