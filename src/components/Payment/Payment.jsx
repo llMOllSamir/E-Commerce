@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import * as Yup from "yup"
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
@@ -41,23 +40,21 @@ export default function Payment({userData}) {
 
   let paymentMethode = async(value)=>{
     let method= formInput()
-    if (method==undefined) {
+    if (method===undefined) {
       setErrPayment(true)
-    }else if (method=="cash"){
+    }else if (method==="cash"){
      await payCach(value)
       setErrPayment(false);
-    }else if(method=="visa"){
+    }else if(method==="visa"){
       await payVisa(value)
       setErrPayment(false);
-    }
-   
-
+    } 
   }
 // payment method by cash 
   let payCach = async(value)=>{
     setPayLoding(true)
-    let {data} = await axios.post("https://route-ecommerce-app.vercel.app/api/v1/orders/"+cartid,{shippingAddress:{value}},{headers}).catch(()=>{toast.error("check connection");setPayLoding(false)})
-    if(data?.status=="success"){
+    let {data} = await axios.post("https://ecommerce.routemisr.com/api/v1/orders/"+cartid,{shippingAddress:{value}},{headers}).catch(()=>{toast.error("check connection");setPayLoding(false)})
+    if(data?.status==="success"){
       setPayLoding(false)
       setPayData(data?.data)
       handleShow()
@@ -66,9 +63,9 @@ export default function Payment({userData}) {
 // payment method by online 
   let payVisa = async(value)=>{
     setPayLoding(true)
-    let {data} = await axios.post("https://route-ecommerce-app.vercel.app/api/v1/orders/checkout-session/"+cartid+"?url=https://e-commerce-gray-alpha.vercel.app",{shippingAddress:value},{headers}).catch(()=>{
+    let {data} = await axios.post("https://ecommerce.routemisr.com/api/v1/orders/checkout-session/"+cartid+"?url=https://e-commerce-gray-alpha.vercel.app",{shippingAddress:value},{headers}).catch(()=>{
     toast.error("check connection");setPayLoding(false)})
-    if(data?.status=="success"){
+    if(data?.status==="success"){
       setPayLoding(false)
       window.open(data?.session?.url, "_self")
     }

@@ -12,7 +12,7 @@ export default function Categories() {
 
   async function getCategories(){
     setIsLoading(true)
-    let {data}= await axios.get("https://route-ecommerce-app.vercel.app/api/v1/categories");
+    let {data}= await axios.get("https://ecommerce.routemisr.com/api/v1/categories");
     setCategories(data.data);
     setIsLoading(false)
   };

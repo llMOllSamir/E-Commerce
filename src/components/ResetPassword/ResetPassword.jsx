@@ -11,7 +11,7 @@ let[errMessage,setError]=useState(null)
 let navigate = useNavigate()
   let resetPassword=async(values)=>{
     setIsLoading(true)
-    let {data}= await axios.put("https://route-ecommerce.onrender.com/api/v1/users/changeMyPassword",values,{headers:{token:localStorage.getItem("userToken")}}).catch((err)=>{
+    let {data}= await axios.put("https://ecommerce.routemisr.com/api/v1/users/changeMyPassword",values,{headers:{token:localStorage.getItem("userToken")}}).catch((err)=>{
       setIsLoading(false)
       if(err.response?.data?.message=="fail"){
         setError(err.response.data.errors.msg)

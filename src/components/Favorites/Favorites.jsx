@@ -27,7 +27,7 @@ export default function Favorites() {
   }
 
   let checkData=()=>{
-    if (wishData?.length==0){
+    if (wishData?.length===0){
       setError("There is no Favourite")
     }
   }

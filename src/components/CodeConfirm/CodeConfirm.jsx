@@ -12,7 +12,7 @@ export default function CodeConfirm({success,setSuccess}) {
 
   let sendCode=async (values)=>{
     setIsLoading(true)
-    let{data}= await axios.post("https://route-ecommerce.onrender.com/api/v1/auth/verifyResetCode",values).catch((err)=>{
+    let{data}= await axios.post("https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode",values).catch((err)=>{
       setIsLoading(false)
     setErr(err.response.data.message)
     ;})

@@ -16,7 +16,7 @@ export default function NewPassword() {
 
   let getCode=async (values)=>{
     setIsLoading(true)
-    let{data}= await axios.put("https://route-ecommerce.onrender.com/api/v1/auth/resetPassword",values).catch((err)=>{
+    let{data}= await axios.put("https://ecommerce.routemisr.com/api/v1/auth/resetPassword",values).catch((err)=>{
       console.log(err);
       setIsLoading(false)
     setErr(err.response.data.message)

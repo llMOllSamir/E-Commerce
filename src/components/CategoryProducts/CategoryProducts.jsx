@@ -28,7 +28,7 @@ export default function CategoryProducts() {
   }
   
   async function getSpecialCategory(){
-    let {data}= await axios.get(`https://route-ecommerce-app.vercel.app/api/v1/categories/`+id);
+    let {data}= await axios.get(`https://ecommerce.routemisr.com/api/v1/categories/`+id);
     setSpecialCategory(data.data);
     getProducts(data?.data?.name)
   };
@@ -45,7 +45,7 @@ export default function CategoryProducts() {
 
   let getProducts=async(categeroy)=>{
     setIsLoading(true)
-    let {data}= await axios.get("https://route-ecommerce-app.vercel.app/api/v1/products");
+    let {data}= await axios.get("https://ecommerce.routemisr.com/api/v1/products");
     setProducts(data.data.filter((product)=> product?.category?.name==categeroy ));
     setIsLoading(false)
   };

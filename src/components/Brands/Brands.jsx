@@ -13,7 +13,7 @@ export default function Brands() {
 
   async function getBrands(){
     setIsLoading(true)
-    let {data}= await axios.get("https://route-ecommerce-app.vercel.app/api/v1/brands");
+    let {data}= await axios.get("https://ecommerce.routemisr.com/api/v1/brands");
     setBrands(data.data);
     setIsLoading(false)
   };

@@ -1,14 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import styles from "./Navbar.module.css";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { CartContext } from '../../Context/CartContext';
 
 
 export default function NavBar({userData,logOut}) {
+   
+
+  let navigatePage = ()=>{
+    window.scrollTo(0,0)
+  }
 
   let {cartCounter} = useContext(CartContext)
 
@@ -23,13 +28,13 @@ export default function NavBar({userData,logOut}) {
            <i className="fa-solid fa-cart-shopping fa-flip-horizontal text-success fs-3 "></i>
            <h1 className='font-brand h4 d-inline-block'>Online Shopping</h1>
            </Link></Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
+      <Navbar.Toggle    aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav" >
         {userData?<Nav  className="me-auto">
-          <Nav.Link><Link to={"/home"} className='nav-link '> Home </Link> </Nav.Link>
-         <Nav.Link> <Link to={"/products"} className='nav-link' > Products </Link> </Nav.Link>
-         <Nav.Link> <Link to={"/brands"} className='nav-link' > Brands </Link> </Nav.Link>
-         <Nav.Link> <Link to={"/categories"} className='nav-link' > Categories </Link> </Nav.Link>
+          <NavLink to={"/home"}  onClick={navigatePage}  className='nav-link'> Home</NavLink>
+          <NavLink to={"/products"} onClick={navigatePage}   className='nav-link'> Products</NavLink>
+          <NavLink to={"/brands"} onClick={navigatePage}   className='nav-link'> Brands</NavLink>
+          <NavLink to={"/categories"}  onClick={navigatePage}  className='nav-link'> Categories</NavLink>
         </Nav>:""}
         
         <Nav className='ms-auto'>

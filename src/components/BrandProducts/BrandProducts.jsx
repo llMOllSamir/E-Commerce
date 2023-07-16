@@ -37,15 +37,15 @@ export default function BrandProducts() {
     return false
   }
   async function getSpecialBrands(){
-    let {data}= await axios.get(`https://route-ecommerce-app.vercel.app/api/v1/brands/`+id);
+    let {data}= await axios.get(`https://ecommerce.routemisr.com/api/v1/brands/`+id);
     setSpecialBrand(data.data);
    getProducts(data.data.name)
   };
 
   let getProducts=async(brands)=>{
     setIsLoading(true)
-    let {data}= await axios.get("https://route-ecommerce-app.vercel.app/api/v1/products");
-    setProducts(data.data.filter((product)=> product?.brand?.name==brands ));
+    let {data}= await axios.get("https://ecommerce.routemisr.com/api/v1/products");
+    setProducts(data.data.filter((product)=> product?.brand?.name===brands ));
     setIsLoading(false)
   };
 

@@ -10,7 +10,7 @@ export default function CategorySlider({}) {
 
 
   async function getCategories(){
-    let {data}= await axios.get("https://route-ecommerce-app.vercel.app/api/v1/categories");
+    let {data}= await axios.get("https://ecommerce.routemisr.com/api/v1/categories");
     setCategories(data.data);
   };
 

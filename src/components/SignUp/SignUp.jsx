@@ -20,7 +20,7 @@ export default function SignUp() {
   });
    let register= async values=>{
     setIsLoading(true)
-    let {data}= await axios.post("https://route-ecommerce.onrender.com/api/v1/auth/signup",values).catch((err)=>{
+    let {data}= await axios.post("https://ecommerce.routemisr.com/api/v1/auth/signup",values).catch((err)=>{
     setIsLoading(false)
     setErr(err.response.data.message)})
     if(data.message=="success"){

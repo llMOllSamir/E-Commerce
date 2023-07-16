@@ -20,7 +20,7 @@ export default function LogIn({saveUser}) {
   
    let logIn= async values=>{
     setIsLoading(true)
-    let {data}= await axios.post("https://route-ecommerce.onrender.com/api/v1/auth/signin",values).catch((err)=>{
+    let {data}= await axios.post("https://ecommerce.routemisr.com/api/v1/auth/signin",values).catch((err)=>{
       setIsLoading(false)
       setErr(err.response.data.message)})
     if(data.message=="success"){
@@ -83,8 +83,12 @@ export default function LogIn({saveUser}) {
        id='password'
        onBlur={formik.handleBlur} />
        {formik.errors.password && formik.touched.password?<div className='alert alert-danger'>{formik.errors.password}</div>:"" }
-      {isLoading?<button  type='submit' className='main-btn ms-auto d-flex'> <i className="fa-solid fa-spin fa-spinner"></i> </button>:<button disabled={!(formik.dirty&&formik.isValid)} type='submit' className='main-btn ms-auto d-flex'> Login </button>}
+     <div className='d-flex justify-content-space-between  align-items-center '> 
       <Link to={"forgotPassword"} className='fw-bold' >Forgot My Password</Link>
+      {isLoading?<button  type='submit' className='main-btn ms-auto d-flex'> 
+      <i className="fa-solid fa-spin fa-spinner"></i> </button>:
+      <button disabled={!(formik.dirty&&formik.isValid)} type='submit' className='main-btn ms-auto d-flex'> Login </button>}
+      </div>
     </form>
       </div>
       </div>

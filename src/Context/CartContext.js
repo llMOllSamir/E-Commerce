@@ -8,7 +8,7 @@ export default function CartContextProvider(props) {
   let addCartItem = (id) => {
     return axios
       .post(
-        "https://route-ecommerce-app.vercel.app/api/v1/cart",
+        "https://ecommerce.routemisr.com/api/v1/cart",
         {
           productId: id,
         },
@@ -24,7 +24,7 @@ export default function CartContextProvider(props) {
 
   let getCartCounter = async () => {
     let { data } = await axios
-      .get("https://route-ecommerce-app.vercel.app/api/v1/cart", {
+      .get("https://ecommerce.routemisr.com/api/v1/cart", {
         headers: {
           token: localStorage.getItem("userToken"),
         },

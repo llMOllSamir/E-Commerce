@@ -1,0 +1,12 @@
+.navbar-nav .nav-link.active {
+  color: red;
+}
+
+#main {
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: calc(100vh);
+}

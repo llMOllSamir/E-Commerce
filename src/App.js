@@ -27,6 +27,7 @@ import Allorders from "./components/Allorders/Allorders.jsx";
 import Payment from "./components/Payment/Payment.jsx";
 import { Offline } from "react-detect-offline";
 import WishContextProvider from "./Context/WishContext.js";
+import "./App.css";
 
 export default function App() {
   let [userData, setUserData] = useState(null);

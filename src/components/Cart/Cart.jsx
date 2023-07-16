@@ -22,7 +22,7 @@ export default function Cart() {
   let getCartData= async()=>{
     setIsLoading(true)
     let { data } = await axios
-      .get("https://route-ecommerce-app.vercel.app/api/v1/cart", {
+      .get("https://ecommerce.routemisr.com/api/v1/cart", {
         headers: {
           token: localStorage.getItem("userToken"),
         },
@@ -41,7 +41,7 @@ export default function Cart() {
 let updateProductQuantity=async(productId,productCount)=>{
   setCountLoading(true)
  if (productCount>0){ let {data} = await axios
- .put("https://route-ecommerce-app.vercel.app/api/v1/cart/"+productId,{count:productCount}, {
+ .put("https://ecommerce.routemisr.com/api/v1/cart/"+productId,{count:productCount}, {
    headers: {
      token: localStorage.getItem("userToken"),
    },
@@ -62,7 +62,7 @@ let updateProductQuantity=async(productId,productCount)=>{
 let removeItemCart=async(productId)=>{
   setRemoveLoading(true)
   let {data} = await axios
-  .delete("https://route-ecommerce-app.vercel.app/api/v1/cart/"+productId,{
+  .delete("https://ecommerce.routemisr.com/api/v1/cart/"+productId,{
     headers: {
       token: localStorage.getItem("userToken"),
     },
@@ -82,7 +82,7 @@ let removeItemCart=async(productId)=>{
 // remove Cart
 let removeCart= async()=>{
 let {data} = await axios
-.delete("https://route-ecommerce-app.vercel.app/api/v1/cart/",{
+.delete("https://ecommerce.routemisr.com/api/v1/cart/",{
   headers: {
     token: localStorage.getItem("userToken"),
   },

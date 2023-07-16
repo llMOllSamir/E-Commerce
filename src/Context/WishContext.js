@@ -26,20 +26,19 @@ export default function WishContextProvider(props) {
 
   let getWishinglist = async () => {
     let { data } = await axios
-      .get("https://route-ecommerce-app.vercel.app/api/v1/wishlist", {
+      .get("https://ecommerce.routemisr.com/api/v1/wishlist", {
         headers,
       })
       .catch((err) => {})
       .then((res) => res);
     setWishData(data.data);
-    console.log("Asdasdasdasd");
   };
 
   let postWish = async (id) => {
     setIsChanging(true);
     let { data } = await axios
       .post(
-        "https://route-ecommerce-app.vercel.app/api/v1/wishlist",
+        "https://ecommerce.routemisr.com/api/v1/wishlist",
         {
           productId: id,
         },
@@ -54,7 +53,7 @@ export default function WishContextProvider(props) {
   let deleteWish = async (id) => {
     setIsChanging(true);
     let { data } = await axios
-      .delete("https://route-ecommerce-app.vercel.app/api/v1/wishlist/" + id, {
+      .delete("https://ecommerce.routemisr.com/api/v1/wishlist/" + id, {
         headers,
       })
       .catch((err) => {})
